@@ -1,0 +1,216 @@
+<template>
+  <va-card class="card w-[100%]  p-[2%] m-auto">
+    <div class="w-full"><p class="w-full text-2xl  m-auto py-[1%]">Driver details</p></div>
+    <div style="border: 1px solid rgb(217, 214, 214);" class="grid grid-cols-1 gap-2 lg:grid-cols-6 p-[1%] rounded-md">
+      <div class="col-span-1">
+        <img :src="driver_data.personal_photo" class="w-[200px] rounded-md h-[200px] m-auto">
+      </div>
+      <div class=" col-span-5">
+        <div class="flex">
+          <p class="text-xl md:text-2xl font-bold px-4 ">{{ driver_data.name }}</p>
+          <div class="card flex justify-content-center">
+           <Rating v-model="value" :cancel="false" readonly  />
+
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-y-3 xl:w-[100%] lg:w-full p-[1%]" >
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full my-auto  text-[white]  pi pi-check"></i>
+          <p class="text-xl  px-1 my-auto">{{ driver_data.name }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.state }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.lang }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.name }}</p>
+        </div>
+
+      </div>
+
+      </div>
+
+    </div>
+    <div class="w-full"><p class="w-full text-2xl  m-auto py-[1%]">price details</p></div>
+    <div style="border: 1px solid rgb(217, 214, 214);" class=" p-[1%] rounded-md">
+
+      <div class="w-full">
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-y-3 xl:w-[100%] lg:w-full p-[1%]" >
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full my-auto  text-[white]  pi pi-check"></i>
+          <p class="text-xl  px-1 my-auto">{{ driver_data.name }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.state }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.lang }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.name }}</p>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+    <div class="w-full"><p class="w-full text-2xl  m-auto py-[1%]">car details</p></div>
+    <div style="border: 1px solid rgb(217, 214, 214);" class="grid grid-cols-1 gap-2 lg:grid-cols-6 p-[1%] rounded-md">
+      <div class="col-span-1">
+        <div class=" m-auto p-[1%]">
+      <swiper
+        @slideChange="onSlideChange"
+        :navigation="true"
+
+        :modules="modules"
+        :scrollbar="{ draggable: true }"
+        :autoplay="{
+        delay: 2000,
+        disableOnInteraction: false,
+      }"
+        :breakpoints="{
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+      }"
+      >
+
+        <SwiperSlide v-for="image in driver_data.car_photo">
+          <div class="text-center bg-teal-100 rounded-3xl m-2">
+            <!-- Doctor -->
+            <div class="bg-white rounded-3xl w-full m-auto">
+
+              <img class="w-[200px] h-[200px] m-auto rounded-md" :src="image">
+              <!-- <img class="w-[250px] h-[250px] m-auto" :src="image.original_url"> -->
+            </div>
+
+          </div>
+          <!-- Doctor -->
+        </SwiperSlide>
+      </swiper>
+    </div>
+      </div>
+      <div class=" col-span-5">
+        <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-y-3 xl:w-[100%] lg:w-full p-[1%]" >
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full my-auto  text-[white]  pi pi-check"></i>
+          <p class="text-xl  px-1 my-auto">{{ driver_data.name }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.state }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.lang }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.name }}</p>
+        </div>
+        <div class="flex ">
+          <i class="bg-[#DE4915] p-1 rounded-full text-[white] my-auto pi pi-check"></i>
+          <p class="text-xl md:text-xl px-1 my-auto">{{ driver_data.name }}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="w-full"><p class="w-full text-2xl  m-auto py-[1%]">Ducoment details</p></div>
+    <div style="border: 1px solid rgb(217, 214, 214);" class="grid grid-cols-1 gap-2 lg:grid-cols-6 p-[1%] rounded-md">
+      <div class="col-span-1">
+        <div class=" m-auto p-[1%]">
+      <swiper
+        @slideChange="onSlideChange"
+        :navigation="true"
+
+        :modules="modules"
+        :scrollbar="{ draggable: true }"
+        :autoplay="{
+        delay: 2000,
+        disableOnInteraction: false,
+      }"
+        :breakpoints="{
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        480: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+      }"
+      >
+
+        <SwiperSlide v-for="image in driver_data.car_photo">
+          <div class="text-center bg-teal-100 rounded-3xl m-2">
+            <!-- Doctor -->
+            <div class="bg-white rounded-3xl w-full m-auto">
+
+              <img class="w-[200px] h-[200px] m-auto rounded-md" :src="image">
+              <!-- <img class="w-[250px] h-[250px] m-auto" :src="image.original_url"> -->
+            </div>
+
+          </div>
+          <!-- Doctor -->
+        </SwiperSlide>
+      </swiper>
+    </div>
+      </div>
+
+    </div>
+  </va-card>
+</template>
+
+<script setup>
+
+import axios from "axios";
+import {ref, watch, onMounted} from "vue";
+import {useRoute} from "vue-router";
+
+const route = useRoute();
+import {Swiper, SwiperSlide} from "swiper/vue";
+import "swiper/css";
+import "swiper/css/pagination";
+
+import {Pagination, Navigation, Autoplay} from "swiper/modules";
+const value = ref(2.5);
+const modules = [Pagination, Navigation, Autoplay];
+const driver_data = ref({})
+onMounted(() => {
+  axios.get(`/api/drivers/${route.params.id}`).then((res) => {
+    console.log(res.data)
+    driver_data.value = res.data.user
+    console.log("dwd")
+    console.log(driver_data)
+  });
+
+})
+
+
+</script>
+
+<style scoped>
+
+</style>

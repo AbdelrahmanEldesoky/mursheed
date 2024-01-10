@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'vuestic-sass/index';
+@import 'icon-fonts/index';
+
+html {
+  line-height: 1.15;
+}
+* {
+}
+
+body {
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace;
+  font-size: 1em;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.p-button,
+.p-button.p-button-success {
+  background-color: #DE4915 !important;
+  border-color:  #DE4915 !important;
+  color: #fff;
+}
+.other{
+  background-color: #DE4915 !important;
+  border-color:  #DE4915 !important;
+  color: #fff;
+
+
+}
+.pop {
+  background-color: #098071 !important;
+  border-color: #098071 !important;
+  color: #098071;
+}
+.exite {
+  background-color: #3d9209 !important;
+  border-color: #3d9209 !important;
+  color: red;
+}
+.delete {
+  border-radius: 50%;
+  background-color: rgb(185, 17, 17) !important;
+  border-color: rgb(177, 21, 21) !important;
+  color: red;
+}
+.new {
+  background-color: #de4915 !important;
+  border-color: #de4915 !important;
+}
+.p-rating .p-rating-item .p-rating-icon {
+  color: rgb(166, 166, 0) !important;
+}
+
